@@ -1,0 +1,144 @@
+/* Общие стили для "нарисованного" эффекта */
+body {
+    font-family: 'Caveat', cursive; /* Основной шрифт, имитирующий почерк */
+    background-color: #f7f3e9; /* Цвет старой бумаги */
+    background-image: url('images/lined_paper_bg.png'); /* Фон с разлинованной бумагой */
+    background-size: cover;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1000px; /* Максимальная ширина контента */
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный фон для контента, чтобы просвечивал фон бумаги */
+    border: 2px solid #3a4a58; /* Рамка, как будто обведено ручкой */
+    box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.2); /* Тень, как от толстого листа */
+    padding: 30px;
+    box-sizing: border-box;
+    position: relative;
+    /* Добавляем эффект "клякс" или брызг чернил */
+    background-image: url('images/ink_splatter_top.png'), url('images/ink_splatter_bottom.png');
+    background-repeat: no-repeat;
+    background-position: top 50px left 50px, bottom 50px right 50px;
+    background-size: 100px, 120px;
+}
+
+
+/* Шапка */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Секция командиров */
+.commanders-section {
+    position: relative;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.commanders-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.join-buttons {
+    display: flex;
+    justify-content: space-around;
+    position: absolute; /* Позиционируем кнопки относительно .commanders-section */
+    bottom: 5%; /* Отступ снизу изображения командиров */
+    width: 100%;
+    left: 0;
+    padding: 0 5%; /* Небольшие отступы по краям */
+    box-sizing: border-box;
+}
+
+.join-btn {
+    font-family: 'Permanent Marker', cursive; /* Шрифт для кнопок, более агрессивный */
+    font-size: 1.5em;
+    color: #000;
+    background-color: transparent; /* Прозрачный фон */
+    border: 2px solid #000; /* Обводка ручкой */
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.7); /* Тень, как от нарисованной кнопки */
+    transition: all 0.1s ease-in-out;
+    position: relative;
+    z-index: 2; /* Убедимся, что кнопки поверх изображения */
+}
+
+.join-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Легкое закрашивание при наведении */
+    box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.7); /* Уменьшаем тень при наведении */
+    transform: translate(2px, 2px); /* Эффект "нажатия" */
+}
+
+/* Секция танков */
+.tanks-section {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.tanks-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Футер */
+.footer {
+    text-align: center;
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px dashed #999; /* Разделитель ручкой */
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 15px;
+    }
+    .logo {
+        max-width: 90%;
+    }
+    .join-btn {
+        font-size: 1.2em;
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .join-buttons {
+        flex-direction: column; /* Кнопки в столбец на очень маленьких экранах */
+        gap: 10px; /* Отступ между кнопками */
+        bottom: 0;
+        padding: 0 2%;
+    }
+    .join-btn {
+        width: 80%; /* Ширина кнопок */
+        margin: 0 auto;
+    }
+    .footer {
+        font-size: 0.8em;
+    }
+}
